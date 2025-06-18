@@ -50,7 +50,7 @@ jobs:
         id: build
         uses: docker/build-push-action@v5
         with:
-          context: ./cloudflare-ddns
+          context: .
           push: false # Only build for scanning, do not push
           tags: ${{ env.DOCKER_IMAGE_NAME }}:pr-${{ github.event.pull_request.number || github.sha }}
           platforms: linux/amd64 # Build only for the runner's architecture for local loading

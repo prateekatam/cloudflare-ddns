@@ -1,4 +1,4 @@
-name: QC and Vulnerability Scan
+name: Pre-merge checks
 
 on:
   pull_request:

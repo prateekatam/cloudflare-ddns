@@ -1,4 +1,4 @@
-FROM chainguard/curl@sha256:57e28318aee0c29ec031d42938ae37177e0b432f9988c1174b589e5b89e26cb7
+FROM alpine/curl:8.14.1
 
 WORKDIR /app
 

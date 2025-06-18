@@ -105,3 +105,5 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Tags Created:" >> $GITHUB_STEP_SUMMARY
           echo "${{ steps.meta.outputs.tags }}" | sed 's/^/- /' >> $GITHUB_STEP_SUMMARY
+    permissions:
+      packages: write # Grant write permission for packages

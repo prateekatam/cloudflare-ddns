@@ -22,7 +22,7 @@ jobs:
         run: shellcheck cloudflare_ddns.sh
 
       - name: Run Hadolint
-        uses: hadolint/hadolint-action@latest
+        uses: hadolint/hadolint-action@v3.1.0
 
   build-and-scan:
     runs-on: ubuntu-latest

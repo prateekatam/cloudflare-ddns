@@ -22,7 +22,7 @@ jobs:
         run: shellcheck cloudflare_ddns.sh
 
       - name: Run Hadolint
-        run: docker run --rm -i -v "${PWD}/Dockerfile:/Dockerfile" hadolint/hadolint < /Dockerfile
+        uses: hadolint/hadolint-action@latest
 
   build-and-scan:
     runs-on: ubuntu-latest

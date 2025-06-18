@@ -29,7 +29,7 @@ This project provides a simple Dockerized script to automatically update your Cl
 3.  **Build the Docker Image:**
     Navigate to the `cloudflare-ddns` directory and build the Docker image:
     ```bash
-    docker build -t cloudflare-ddns .
+    docker build -t ghcr.io/<YOUR_GITHUB_USERNAME>/cloudflare-ddns .
     ```
 
 4.  **Run the Docker Container:**
@@ -42,6 +42,6 @@ This project provides a simple Dockerized script to automatically update your Cl
       -e CLOUDFLARE_RECORD_NAME="your.domain.com" \
       -e CLOUDFLARE_TTL="300" \
       -e CLOUDFLARE_PROXIED="true" \
-      cloudflare-ddns
+      ghcr.io/<YOUR_GITHUB_USERNAME>/cloudflare-ddns
     ```
-    Replace the placeholder values with your actual Cloudflare details.
+    Replace the placeholder values with your actual Cloudflare details. Note that if your repository is private, users will need to authenticate with GHCR (e.g., using a GitHub Personal Access Token) to pull the image.

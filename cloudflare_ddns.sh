@@ -13,12 +13,14 @@ DNS_RECORDS=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/${ZONE_
      -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
      -H "Content-Type: application/json")
 
+echo $DNS_RECORDS
+
 
 # Check if DNS_RECORDS is valid JSON and not empty
 if ! echo "${DNS_RECORDS}" | jq -e . >/dev/null 2>&1; then
   echo "Error: Failed to fetch DNS records or invalid JSON response from Cloudflare API."
   echo "Response: ${DNS_RECORDS}"
-  exit 1
+#   exit 1
 fi
 
 RECORD_ID=$(echo "${DNS_RECORDS}" | jq -r '.result[] | select(.name=="'"${RECORD_NAME}"'" and .type=="A") | .id')
@@ -29,7 +31,7 @@ if [ -z "${RECORD_ID}" ]; then
   echo "Error: DNS record with name '${RECORD_NAME}' and type 'A' not found in Cloudflare zone '${ZONE_ID}'."
   echo "Details of A records found in zone '${ZONE_ID}':"
   echo "${DNS_RECORDS}" | jq -r '.result[] | select(.type=="A") | "  - Name: \(.name), Content: \(.content), TTL: \(.ttl), Proxied: \(.proxied), ID: \(.id)"'
-  exit 1
+#   exit 1
 fi
 
 # Get current public IP address

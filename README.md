@@ -6,7 +6,7 @@ This project provides a simple Dockerized script to automatically update your Cl
 
 1.  **Clone this repository:**
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/prateekatam/cloudflare-ddns.git
     cd cloudflare-ddns
     ```
 

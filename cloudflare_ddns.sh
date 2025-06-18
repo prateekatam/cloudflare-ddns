@@ -53,8 +53,8 @@ if [ "${CURRENT_IP}" != "${CLOUDFLARE_IP}" ]; then
          "type":"A",
          "name":"'"${RECORD_NAME}"'",
          "content":"'"${CURRENT_IP}"'",
-         "proxied":${CLOUDFLARE_PROXIED},
-         "ttl":${CLOUDFLARE_TTL},
+         "proxied":'"${CLOUDFLARE_PROXIED}"',
+         "ttl":'"${CLOUDFLARE_TTL}"',
          "comment":"Updated by DDNS script at '"${CURRENT_DATE}"'"
        }')
 

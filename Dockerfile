@@ -1,4 +1,4 @@
-FROM chainguard/curl
+FROM chainguard/curl:latest
 
 WORKDIR /app
 

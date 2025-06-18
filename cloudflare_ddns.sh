@@ -1,5 +1,47 @@
 #!/bin/sh
 
+echo "=== Environment Debug ==="
+echo "PWD: $(pwd)"
+echo "USER: $(whoami)"
+echo "SHELL: $0"
+env | grep -E "(CLOUDFLARE|PATH|HOME)" | sort
+echo "========================="
+
+# Cloudflare API details
+ZONE_ID="${CLOUDFLARE_ZONE_ID}"
+
+# Debug output
+echo "DEBUG: CLOUDFLARE_ZONE_ID env var: '${CLOUDFLARE_ZONE_ID}'"
+echo "DEBUG: ZONE_ID variable: '${ZONE_ID}'"
+echo "DEBUG: All env vars containing CLOUDFLARE:"
+env | grep CLOUDFLARE
+
+# Record details
+RECORD_NAME="${CLOUDFLARE_RECORD_NAME}"
+CLOUDFLARE_TTL="${CLOUDFLARE_TTL:-1}"
+CLOUDFLARE_PROXIED="${CLOUDFLARE_PROXIED:-true}"
+
+# More debug output
+echo "DEBUG: RECORD_NAME: '${RECORD_NAME}'"
+echo "DEBUG: CLOUDFLARE_TTL: '${CLOUDFLARE_TTL}'"
+echo "DEBUG: CLOUDFLARE_PROXIED: '${CLOUDFLARE_PROXIED}'"
+
+# Check if required variables are set
+if [ -z "${ZONE_ID}" ]; then
+    echo "ERROR: ZONE_ID is empty!"
+    exit 1
+fi
+
+if [ -z "${CLOUDFLARE_API_TOKEN}" ]; then
+    echo "ERROR: CLOUDFLARE_API_TOKEN is empty!"
+    exit 1
+fi
+
+# Fetch DNS records to find the ID and current IP
+echo "DEBUG: Cloudflare API URL attempted: https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records"
+
+# ---------------------------------------
+
 # Cloudflare API details
 ZONE_ID="${CLOUDFLARE_ZONE_ID}"
 

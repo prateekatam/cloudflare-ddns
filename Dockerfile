@@ -4,8 +4,7 @@ WORKDIR /app
 
 COPY cloudflare_ddns.sh .
 
-RUN apk search -v jq && \
-    apk add --no-cache jq=1.7.1 && \
+RUN apk add --no-cache jq=1.8.0-r0 && \
     chmod +x /app/cloudflare_ddns.sh
     
 

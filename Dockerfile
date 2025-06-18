@@ -1,4 +1,4 @@
-FROM alpine/curl
+FROM chainguard/curl
 
 WORKDIR /app
 

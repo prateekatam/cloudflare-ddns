@@ -1,6 +1,27 @@
-# Cloudflare DDNS Update
+# Cloudflare DDNS
+
+![Cloudflare DDNS Update Diagram](assets/cloudflare-ddns.png)
+
 
 This project provides a simple Dockerized script to automatically update your Cloudflare DNS A record with your current public IP address. It's designed to be lightweight and easy to deploy.
+
+
+### How It Works
+
+The `cloudflare-ddns` script automates the process of keeping your Cloudflare DNS A record updated with your dynamic public IP address. Here's a step-by-step breakdown of its operation:
+
+```mermaid
+graph TD;
+    A[Start] --> B{Determine Public IP};
+    B --> C["Query External Service (e.g., icanhazip.com)"];
+    C --> D{Fetch Current DNS Record};
+    D --> E[Communicate with Cloudflare API];
+    E --> F{Compare IPs};
+    F -- "IPs Different" --> G[Send Update Request to Cloudflare API];
+    G --> H[End];
+    F -- "IPs Same" --> I[No Action Taken];
+    I --> H;
+```
 
 ## Usage
 

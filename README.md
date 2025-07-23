@@ -3,7 +3,7 @@
 ![Cloudflare DDNS Update Diagram](assets/cloudflare-ddns.png)
 
 
-This project provides a simple Dockerized script to automatically update your Cloudflare DNS A record with your current public IP address. It's designed to be lightweight and easy to deploy.
+This project provides a simple containerized script to automatically update your Cloudflare DNS 'A' record with your current public IP address. It's designed to be lightweight and easy to deploy.
 
 
 ### How It Works

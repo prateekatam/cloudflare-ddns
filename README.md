@@ -37,4 +37,4 @@ graph TD;
       -e CLOUDFLARE_PROXIED="true" \
       ghcr.io/prateekatam/cloudflare-ddns
     ```
-    Replace the placeholder values with your actual Cloudflare details. Note that if your repository is private, users will need to authenticate with GHCR (e.g., using a GitHub Personal Access Token) to pull the image.
+    Replace the placeholder values with your actual Cloudflare details.
